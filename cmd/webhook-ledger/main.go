@@ -67,7 +67,7 @@ func resolveSecret(s string) []byte {
 		s = os.Getenv("WEBHOOK_SECRET")
 	}
 	if s == "" {
-		s = "whsec_dGVzdC1zZWNyZXQtdGVzdC1zZWNyZXQtdGVzdA==" // documented dev default, never for production
+		s = "dev-only-fixture-secret" // documented dev default, never for production; not a real credential
 		fmt.Fprintln(os.Stderr, "warning: using the built-in dev secret; set -secret or WEBHOOK_SECRET")
 	}
 	return sign.SecretBytes(s)
